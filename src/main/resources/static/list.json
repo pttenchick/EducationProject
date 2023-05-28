@@ -1,21 +1,21 @@
-[ {
-  "messageID" : 341,
-  "title" : "Bookish",
-  "text" : "Hello! I buy a book",
-  "sender" : "tata@mail.ru",
-  "serverSender" : "mail.ru",
-  "recepient" : "koko@gmail.com",
-  "serverRecipient" : "gmail.com",
+{
+  "messageID" : 1,
+  "title" : "1",
+  "text" : "1",
+  "sender" : "1",
+  "serverSender" : "1",
+  "recepient" : "1",
+  "serverRecipient" : "1",
   "status" : "Отправлено",
   "dateMail" : "27-05-2023"
-}, {
-  "messageID" : 579,
-  "title" : "Hello, Bookish!",
-  "text" : "I congratulate you!",
-  "sender" : "koko@gmail.com",
-  "serverSender" : "gmail.com",
-  "recepient" : "tata@mail.ru",
-  "serverRecipient" : "mail.ru",
-  "status" : "Черновик",
+}{
+  "messageID" : 2,
+  "title" : "1",
+  "text" : "1",
+  "sender" : "1",
+  "serverSender" : "1",
+  "recepient" : "1",
+  "serverRecipient" : "1",
+  "status" : "Отправлено",
   "dateMail" : "27-05-2023"
-} ]
+}

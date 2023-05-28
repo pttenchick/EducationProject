@@ -22,8 +22,8 @@ public class MessageService {
     public void SaveList(List<Message> messageList) throws IOException {
         repository.Save(messageList);
     }
-    public void Delete(int id) throws IOException {
-        repository.Delete(id);
+    public boolean Delete(Message message) throws IOException {
+        return repository.Delete(message);
     }
     public List<Message> GetAll() throws IOException {
         return repository.Load();

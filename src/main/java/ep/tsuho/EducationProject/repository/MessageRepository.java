@@ -23,7 +23,7 @@ public class MessageRepository {
 
     public void Save(List<Message> list) throws IOException {
         try {
-            Writer writer = new FileWriter(fileName, true);
+            Writer writer = new FileWriter(fileName, false);
             ObjectMapper mapper = new ObjectMapper();
             ObjectWriter prettyWriter = mapper.writer(new DefaultPrettyPrinter());
             prettyWriter.writeValue(writer, list);
@@ -62,17 +62,16 @@ public class MessageRepository {
         return null;
     }
 
-    public void Delete(int id) throws IOException {
+    public boolean Delete(Message inputMessage) throws IOException {
         List<Message> list = Load();
-        Message message;
-
-        for (int i = 0; i < list.size() - 1; i++) {
-            message = list.get(i);
-
-            if (message.getMessageID() == id) {
-                list.remove(i);
+        for (Message message :list)
+        {
+            if (message.equals(inputMessage)){
+                list.remove(message);
+                Save(list);
+                return true;
             }
         }
-        Save(list);
+        return false;
     }
 }
