@@ -6,17 +6,15 @@ import com.fasterxml.jackson.core.util.DefaultPrettyPrinter;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
 import ep.tsuho.EducationProject.model.Message;
 import org.springframework.stereotype.Repository;
 
-import java.io.*;
-import java.util.ArrayList;
-import java.util.HashMap;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.Writer;
 import java.util.List;
-import java.util.Map;
 
 
 
@@ -82,5 +80,11 @@ public class MessageRepository {
             }
         }
         return false;
+    }
+
+    public Message Update(Message in_message){
+        Message out_message = in_message;
+
+        return out_message;
     }
 }

@@ -28,6 +28,11 @@ public class MessageService {
     public List<Message> GetAll() throws IOException {
         return repository.Load();
     }
+    public Message Update(Message in_message){
+        Message out_message = in_message;
+
+        return out_message;
+    }
 
 
 }

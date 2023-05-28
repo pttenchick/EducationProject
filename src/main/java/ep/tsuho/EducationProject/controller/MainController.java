@@ -57,4 +57,10 @@ public class MainController {
     public List<Message> GetAll() throws IOException {
         return service.GetAll();
     }
+
+    @PutMapping("update")
+    public  Message Update(@RequestBody Message message) throws  IOException{
+        service.Update(message);
+        return null;
+    }
 }
