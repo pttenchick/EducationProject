@@ -18,7 +18,7 @@ public class MainController {
     private MessageService service;
 
     @GetMapping("{id}")
-    public ResponseEntity<Message> getMessage(@PathVariable("id") int id) throws IOException {
+    public ResponseEntity<Message> getMessage(@PathVariable("id") int id){
         Message message = service.GetById(id);
         if (message == null) {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
@@ -27,7 +27,7 @@ public class MainController {
     }
 
     @PostMapping("save")
-    public ResponseEntity<Message> Save(@RequestBody Message message) throws IOException {
+    public ResponseEntity<Message> Save(@RequestBody Message message){
         if (message == null) {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
@@ -36,20 +36,20 @@ public class MainController {
     }
 
     @PostMapping("save_all")
-    public ResponseEntity<Message> SaveAll(@RequestBody List<Message> list) throws IOException {
+    public ResponseEntity<Message> SaveAll(@RequestBody List<Message> list){
         if (list == null) {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
-        service.SaveList(list);
+        service.SaveList();
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
     @DeleteMapping("delete")
-    public ResponseEntity<Boolean> Delete(@RequestBody Message message) throws IOException {
+    public ResponseEntity<Boolean> Delete(@RequestBody Message message){
         if (message == null) {
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         }
-        return new ResponseEntity<>(service.Delete(message),HttpStatus.OK); //Может нужно заменить на коды 2xx
+        return new ResponseEntity<>(service.Delete(message),HttpStatus.OK);
     }
 
     @GetMapping("get_all")
@@ -57,9 +57,9 @@ public class MainController {
         return service.GetAll();
     }
 
-    @PutMapping("update")
-    public  Message Update(@RequestBody Message message) throws  IOException{
-        service.Update(message);
-        return null;
+    @PutMapping("update/{id}")
+    public ResponseEntity<Message> Update(@RequestParam int id, @RequestBody Message message){
+        service.Update(message, id);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 }

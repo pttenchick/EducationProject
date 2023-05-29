@@ -1,4 +1,3 @@
-
 package ep.tsuho.EducationProject.repository;
 
 import com.fasterxml.jackson.core.type.TypeReference;
@@ -6,60 +5,53 @@ import com.fasterxml.jackson.core.util.DefaultPrettyPrinter;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
-import com.google.gson.Gson;
 import ep.tsuho.EducationProject.model.Message;
 import org.springframework.stereotype.Repository;
-
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.Writer;
+import java.util.ArrayList;
 import java.util.List;
-
-
-
 
 @Repository
 public class MessageRepository {
-    private static final String fileName = "src/main/resources/static/list.json";
-    private Gson gson = new Gson();
-    private static final File file = new File(fileName);
+    private String fileName = "src/main/resources/static/list.json";
 
+    private File file = new File(fileName);
 
+    private List<Message> list = new ArrayList<>();
 
-
-    public void Save(List<Message> list) throws IOException {
+    private void Recording(){
         try {
-            FileWriter fileWriter = new FileWriter(fileName);
-            gson.toJson(list, fileWriter);
-            fileWriter.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public void Save(Message message) throws IOException {
-        try {
-            Writer writer = new FileWriter(fileName, true);
+            Writer writer = new FileWriter(fileName, false);
             ObjectMapper mapper = new ObjectMapper();
             ObjectWriter prettyWriter = mapper.writer(new DefaultPrettyPrinter());
-            prettyWriter.writeValue(writer, message);
+            prettyWriter.writeValue(writer, list);
         } catch (Exception ex) {
             ex.printStackTrace();
         }
+    }
+
+    public void Save(){
+        Recording();
+    }
+
+    public void Save(Message message) {
+            list.add(message);
+            Recording();
     }
 
     public List<Message> Load() throws IOException {
         ObjectMapper mapper = new ObjectMapper();
         mapper.enable(DeserializationFeature.ACCEPT_SINGLE_VALUE_AS_ARRAY);
 
-        List <Message> messageList = mapper.readValue(file, new TypeReference<List<Message>>() {});
-        messageList.forEach(message -> System.out.println(message));
-        return messageList;
+        list = mapper.readValue(file, new TypeReference<List<Message>>() {});
+        return list;
     }
-    public Message getById(int id) throws IOException {
 
-        var list = Load();
+    public Message getById(int id){
+
         for(Message message : list) {
             if(message.getMessageID() == id) {
                 return message;
@@ -68,22 +60,23 @@ public class MessageRepository {
         return null;
     }
 
-    public boolean Delete(Message inputMessage) throws IOException {
-        List<Message> list = Load();
-        for (Message message :list)
-        {
+    public boolean Delete(Message inputMessage){
+        for (Message message :list) {
             if (message.equals(inputMessage)){
                 list.remove(message);
-                Save(list);
+                Save();
                 return true;
             }
         }
         return false;
     }
 
-    public Message Update(Message in_message){
-        Message out_message = in_message;
-
-        return out_message;
+    public void Update(Message message, int id){
+        for (Message item : list) {
+            if(item.getMessageID() == id){
+                item = message;
+            }
+        }
+        Save();
     }
 }

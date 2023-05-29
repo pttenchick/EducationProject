@@ -1,4 +1,4 @@
-[{
+[ {
   "messageID" : 1,
   "title" : "1",
   "text" : "1",
@@ -8,8 +8,7 @@
   "serverRecipient" : "1",
   "status" : "Отправлено",
   "dateMail" : "27-05-2023"
-},
-{
+}, {
   "messageID" : 2,
   "title" : "1",
   "text" : "1",
@@ -19,5 +18,14 @@
   "serverRecipient" : "1",
   "status" : "Отправлено",
   "dateMail" : "27-05-2023"
+},{
+  "messageID" : 5,
+  "title" : "1",
+  "text" : "1",
+  "sender" : "1",
+  "serverSender" : "1",
+  "recepient" : "1",
+  "serverRecipient" : "1",
+  "status" : "Отправлено",
+  "dateMail" : "27-05-2023"
 }
-]
