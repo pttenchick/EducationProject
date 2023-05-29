@@ -6,29 +6,38 @@ import com.fasterxml.jackson.core.util.DefaultPrettyPrinter;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 import ep.tsuho.EducationProject.model.Message;
 import org.springframework.stereotype.Repository;
 
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.Writer;
+import java.io.*;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
+
+
 
 @Repository
 public class MessageRepository {
     private static final String fileName = "src/main/resources/static/list.json";
-
+    private Gson gson;
     private static final File file = new File(fileName);
+
+
+
 
     public void Save(List<Message> list) throws IOException {
         try {
-            Writer writer = new FileWriter(fileName, false);
-            ObjectMapper mapper = new ObjectMapper();
-            ObjectWriter prettyWriter = mapper.writer(new DefaultPrettyPrinter());
-            prettyWriter.writeValue(writer, list);
-        } catch (Exception ex) {
-            ex.printStackTrace();
+            FileWriter fileWriter = new FileWriter(fileName);
+            gson.toJson(list, fileWriter);
+            fileWriter.close();
+            System.out.println("Lighting objects have been saved to " + fileName + " file.");
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 

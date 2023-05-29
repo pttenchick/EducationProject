@@ -1,6 +1,9 @@
 package ep.tsuho.EducationProject.model;
 
 
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
+import com.fasterxml.jackson.annotation.JsonKey;
+import com.fasterxml.jackson.annotation.JsonValue;
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
