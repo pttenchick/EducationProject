@@ -22,7 +22,7 @@ import java.util.List;
 @Repository
 public class MessageRepository {
     private static final String fileName = "src/main/resources/static/list.json";
-    private Gson gson;
+    private Gson gson = new Gson();
     private static final File file = new File(fileName);
 
 
@@ -33,7 +33,6 @@ public class MessageRepository {
             FileWriter fileWriter = new FileWriter(fileName);
             gson.toJson(list, fileWriter);
             fileWriter.close();
-            System.out.println("Lighting objects have been saved to " + fileName + " file.");
         } catch (IOException e) {
             e.printStackTrace();
         }

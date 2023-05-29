@@ -4,7 +4,6 @@ package ep.tsuho.EducationProject.controller;
 import ep.tsuho.EducationProject.model.Message;
 import ep.tsuho.EducationProject.service.MessageService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.rest.core.annotation.RestResource;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
