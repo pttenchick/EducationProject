@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.io.IOException;
 import java.util.List;
@@ -36,10 +37,7 @@ public class MainController {
     }
 
     @PostMapping("save_all")
-    public ResponseEntity<Message> SaveAll(@RequestBody List<Message> list){
-        if (list == null) {
-            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-        }
+    public ResponseEntity<Message> SaveAll(){
         service.SaveList();
         return new ResponseEntity<>(HttpStatus.OK);
     }
@@ -58,8 +56,15 @@ public class MainController {
     }
 
     @PutMapping("update/{id}")
-    public ResponseEntity<Message> Update(@RequestParam int id, @RequestBody Message message){
+    public ResponseEntity<Message> Update(@PathVariable("id") int id, @RequestBody Message message){
         service.Update(message, id);
         return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+    @GetMapping("about")
+    public ModelAndView about () {
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("READMI");
+        return modelAndView;
     }
 }

@@ -17,7 +17,6 @@ import java.util.Date;
 @Setter
 public class Message {
     private int messageID;
-    static int counter = 1; //Как сделатьтак, чтобы его значение не сбрасывалось после окончания? Можно записывать значение счетчика в отдельный файл
     private String title;
     private String text;
     private String sender;
@@ -25,13 +24,13 @@ public class Message {
     private String recepient;
     private String serverRecipient;
     private String status = "Черновик";
-    private String dateMail = null;
+    private String dateMail;
+    private double size;
 
     public Message() throws IOException {
 
-        // counter = (int) fileReader.read();
-
-        this.messageID = counter++;
+        this.messageID = 0;
+        this.size = 0;
         this.title = "empty";
         this.text = "empty";
         this.sender = "empty@empty";
@@ -41,11 +40,12 @@ public class Message {
         this.status = "Черновик";
         this.dateMail = new SimpleDateFormat("dd-MM-yyyy").format(new Date());
 
-        //fileWriter.write(counter);
     }
 
-    public Message(int messageID, String title, String text, String sender, String serverSender, String recepient, String serverRecipient, String status) {
+    public Message(int messageID, double size, String title, String text, String sender, String serverSender, String recepient, String serverRecipient, String status) {
+
         this.messageID = messageID;
+        this.size  = size;
         this.title = title;
         this.text = text;
         this.sender = sender;

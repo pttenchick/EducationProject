@@ -61,7 +61,7 @@ public class MessageRepository {
     }
 
     public boolean Delete(Message inputMessage){
-        for (Message message :list) {
+        for (Message message : list) {
             if (message.equals(inputMessage)){
                 list.remove(message);
                 Save();
@@ -77,6 +77,27 @@ public class MessageRepository {
                 item = message;
             }
         }
-        Save();
     }
+    public double Accio(){
+        int counter = 0;
+        double sum = 0;
+        double[] numbers = null;
+        for(Message message : list){
+            if(message.getSize() != 0){// Сообщения в картинках считаются или нет?
+                counter++;
+                sum += message.getSize();
+                numbers[counter] = message.getSize();
+            }
+        }
+        double medium = sum / counter;
+
+        for(int i = 0; i < numbers.length; i++){
+
+        }
+
+
+
+
+    }
+
 }
