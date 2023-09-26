@@ -1,51 +1,45 @@
-[
-  {
-
-    "messageID": 1,
-    "size": 1536.8,
-    "title": "Hello!",
-    "text": "Hello, my friend",
-    "sender": "toto@gmail.com",
-    "serverSender": "gmail.com",
-    "recepient": "lolo@yandex.ru",
-    "serverRecipient": "yandex.ru",
-    "status": "Отправлено",
-    "dateMail": "22-05-2023"
-  },
-  {
-    "messageID": 2,
-    "size": 1811.9,
-    "title": "Salut!",
-    "text": "I'm fine, and you?",
-    "sender": "lolo@yandex.ru",
-    "serverSender": "yandex.ru",
-    "recepient": "toto@gmail.com",
-    "serverRecipient": "gmail.com",
-    "status": "Отправлено",
-    "dateMail": "23-05-2023"
-  },
-  {
-    "messageID": 3,
-    "size": 2033.5,
-    "title": "Lolo, you can dance? I learned!",
-    "text": "Dance, dance, dance! Shake!",
-    "sender": "toto@gmail.com",
-    "serverSender": "gmail.com",
-    "recepient": "lolo@yandex.ru",
-    "serverRecipient": "yandex.ru",
-    "status": "Отправлено",
-    "dateMail": "24-05-2023"
-  },
-  {
-    "messageID": 4,
-    "size": 1472.2,
-    "title": "No dance",
-    "text": "I dont like dance",
-    "sender": "lolo@yandex.ru",
-    "serverSender": "yandex.ru",
-    "recepient": "toto@gmail.com",
-    "serverRecipient": "gmail.com",
-    "status": "Отправлено",
-    "dateMail": "25-05-2023"
-  }
-]
+[ {
+  "messageID" : 1,
+  "title" : "Hello!",
+  "text" : "Hello, my friend",
+  "sender" : "toto@gmail.com",
+  "serverSender" : "gmail.com",
+  "recepient" : "lolo@yandex.ru",
+  "serverRecipient" : "yandex.ru",
+  "status" : "Отправлено",
+  "dateMail" : "22-05-2023",
+  "size" : 1536.8
+}, {
+  "messageID" : 2,
+  "title" : "Salut!",
+  "text" : "I'm fine, and you?",
+  "sender" : "lolo@yandex.ru",
+  "serverSender" : "yandex.ru",
+  "recepient" : "toto@gmail.com",
+  "serverRecipient" : "gmail.com",
+  "status" : "Отправлено",
+  "dateMail" : "23-05-2023",
+  "size" : 1811.9
+}, {
+  "messageID" : 3,
+  "title" : "Lolo, you can dance? I learned!",
+  "text" : "Dance, dance, dance! Shake!",
+  "sender" : "toto@gmail.com",
+  "serverSender" : "gmail.com",
+  "recepient" : "lolo@yandex.ru",
+  "serverRecipient" : "yandex.ru",
+  "status" : "Отправлено",
+  "dateMail" : "24-05-2023",
+  "size" : 2033.5
+}, {
+  "messageID" : 4,
+  "title" : "No dance",
+  "text" : "I dont like dance",
+  "sender" : "lolo@yandex.ru",
+  "serverSender" : "yandex.ru",
+  "recepient" : "toto@gmail.com",
+  "serverRecipient" : "gmail.com",
+  "status" : "Отправлено",
+  "dateMail" : "25-05-2023",
+  "size" : 1472.2
+} ]

@@ -62,9 +62,12 @@ public class MainController {
     }
 
     @GetMapping("about")
-    public ModelAndView about () {
-        ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("READMI");
-        return modelAndView;
+    public void about () {
+        System.out.println("Исполнитель: Суходунова Татьяна Васильевна" + "\n" + "Вариант 35" + "\n" + "Предметная область: электронные сообщения");
+    }
+
+    @GetMapping("accio")
+    public double Accio(){
+        return service.Accio();
     }
 }

@@ -30,4 +30,5 @@ public class MessageService {
     public void Update(Message message, int id){
         repository.Update(message,  id);
     }
+    public double Accio() { return repository.Accio();}
 }

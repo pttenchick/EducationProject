@@ -71,33 +71,40 @@ public class MessageRepository {
         return false;
     }
 
-    public void Update(Message message, int id){
+   public void Update(Message message, int id){
         for (Message item : list) {
             if(item.getMessageID() == id){
                 item = message;
             }
         }
     }
-    public double Accio(){
+   public double Accio() {
         int counter = 0;
         double sum = 0;
+        double dispers = 0;
+        double accio = 0;
         double[] numbers = null;
-        for(Message message : list){
-            if(message.getSize() != 0){// Сообщения в картинках считаются или нет?
+        for (Message message : list) {
+            if (message.getSize() != 0) {
                 counter++;
                 sum += message.getSize();
                 numbers[counter] = message.getSize();
             }
         }
         double medium = sum / counter;
+        sum = 0;
 
-        for(int i = 0; i < numbers.length; i++){
-
+        for (int i = 0; i < numbers.length; i++) {
+            double m = (numbers[i] - medium)/ numbers.length;
+            sum += m;
         }
+       for (int i = 0; i < numbers.length; i++) {
+           dispers = (numbers[i] - medium)*(numbers[i] - medium)/ numbers.length;
+       }
+       dispers = Math.pow(dispers, 2);
 
+       accio = sum/dispers - 3;
 
-
-
+       return accio;
     }
-
 }
