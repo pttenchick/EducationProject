@@ -42,12 +42,9 @@ public class MainController {
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
-    @DeleteMapping("delete")
-    public ResponseEntity<Boolean> Delete(@RequestBody Message message){
-        if (message == null) {
-            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-        }
-        return new ResponseEntity<>(service.Delete(message),HttpStatus.OK);
+    @DeleteMapping("delete\"{id}\"")
+    public ResponseEntity<Boolean> Delete(@PathVariable("id") int id){
+        return new ResponseEntity<>(service.Delete(id),HttpStatus.OK);
     }
 
     @GetMapping("get_all")
@@ -62,8 +59,9 @@ public class MainController {
     }
 
     @GetMapping("about")
-    public void about () {
-        System.out.println("Исполнитель: Суходунова Татьяна Васильевна" + "\n" + "Вариант 35" + "\n" + "Предметная область: электронные сообщения");
+    public ResponseEntity<String> about () {
+        String string = "Исполнитель: Суходунова Татьяна Васильевна\n Вариант 35 \nПредметная область: электронные сообщения";
+    return new ResponseEntity<String>(string, HttpStatus.OK);
     }
 
     @GetMapping("accio")

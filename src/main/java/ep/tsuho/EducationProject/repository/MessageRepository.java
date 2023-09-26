@@ -60,9 +60,9 @@ public class MessageRepository {
         return null;
     }
 
-    public boolean Delete(Message inputMessage){
+    public boolean Delete(int id){
         for (Message message : list) {
-            if (message.equals(inputMessage)){
+            if (message.getMessageID() == id){
                 list.remove(message);
                 Save();
                 return true;
@@ -72,23 +72,30 @@ public class MessageRepository {
     }
 
    public void Update(Message message, int id){
-        for (Message item : list) {
-            if(item.getMessageID() == id){
-                item = message;
-            }
-        }
+
+       for(int i = 0; i < list.size(); i++){
+           if(list.get(i).getMessageID() == id){
+               list.set(i, message);
+               Save();
+               break;
+           }
+       }
     }
    public double Accio() {
+
         int counter = 0;
         double sum = 0;
         double dispers = 0;
         double accio = 0;
-        double[] numbers = null;
+        double[] numbers = new double[list.size()];
+
         for (Message message : list) {
             if (message.getSize() != 0) {
                 counter++;
                 sum += message.getSize();
-                numbers[counter] = message.getSize();
+                if (numbers != null) {
+                    numbers[counter] = message.getSize();
+                }
             }
         }
         double medium = sum / counter;
