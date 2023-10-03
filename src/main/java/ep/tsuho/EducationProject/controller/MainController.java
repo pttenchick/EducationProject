@@ -21,17 +21,11 @@ public class MainController {
     @GetMapping("{id}")
     public ResponseEntity<Message> getMessage(@PathVariable("id") int id){
         Message message = service.GetById(id);
-        if (message == null) {
-            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-        }
         return new ResponseEntity<>(message, HttpStatus.OK);
     }
 
     @PostMapping("save")
     public ResponseEntity<Message> Save(@RequestBody Message message){
-        if (message == null) {
-            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-        }
         this.service.Save(message);
         return new ResponseEntity<>(message, HttpStatus.OK);
     }
@@ -65,7 +59,7 @@ public class MainController {
     }
 
     @GetMapping("accio")
-    public double Accio(){
-        return service.Accio();
+    public ResponseEntity<String> Accio(){
+        return new ResponseEntity<String>(service.Accio(), HttpStatus.OK);
     }
 }

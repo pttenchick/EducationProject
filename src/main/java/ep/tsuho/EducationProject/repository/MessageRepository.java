@@ -14,6 +14,9 @@ import java.io.Writer;
 import java.util.ArrayList;
 import java.util.List;
 
+import static java.lang.Math.pow;
+import static java.lang.Math.sqrt;
+
 @Repository
 public class MessageRepository {
     private String fileName = "src/main/resources/static/list.json";
@@ -81,7 +84,7 @@ public class MessageRepository {
            }
        }
     }
-   public double Accio() {
+   public String Accio() {
 
         int counter = 0;
         double sum = 0;
@@ -91,27 +94,35 @@ public class MessageRepository {
 
         for (Message message : list) {
             if (message.getSize() != 0) {
-                counter++;
                 sum += message.getSize();
-                if (numbers != null) {
-                    numbers[counter] = message.getSize();
-                }
+                numbers[counter] = message.getSize();
+                counter++;
             }
         }
         double medium = sum / counter;
         sum = 0;
 
         for (int i = 0; i < numbers.length; i++) {
-            double m = (numbers[i] - medium)/ numbers.length;
+            double m =(numbers[i] - medium);
+            m = (m*m*m*m);
             sum += m;
         }
+        sum = sum/numbers.length;
+
+       double sum2 =  0;
        for (int i = 0; i < numbers.length; i++) {
-           dispers = (numbers[i] - medium)*(numbers[i] - medium)/ numbers.length;
+           dispers = (numbers[i] - medium)*(numbers[i] - medium);
+           sum2 = sum2 + dispers;
        }
-       dispers = Math.pow(dispers, 2);
+       dispers = sum2/numbers.length;
+       double stigma = sqrt(dispers);
 
-       accio = sum/dispers - 3;
+       stigma = stigma*stigma*stigma*stigma;
 
-       return accio;
+       accio = sum/stigma - 3;
+
+       String str = "Медиана: " + medium + "\nСумма: " + sum + "\nDisp: " + dispers + "\nStigma: " + stigma + "\nAccio: " + accio;
+
+       return str;
     }
 }

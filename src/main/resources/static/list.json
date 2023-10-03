@@ -8,7 +8,7 @@
   "serverRecipient" : "yandex.ru",
   "status" : "Отправлено",
   "dateMail" : "22-05-2023",
-  "size" : 1536.8
+  "size" : 1567.2
 }, {
   "messageID" : 2,
   "title" : "Goodbye",
@@ -19,7 +19,7 @@
   "serverRecipient" : "gmail.com",
   "status" : "Отправлено",
   "dateMail" : "23-05-2023",
-  "size" : 1811.9
+  "size" : 1390.1
 }, {
   "messageID" : 4,
   "title" : "No dance",
@@ -30,7 +30,7 @@
   "serverRecipient" : "gmail.com",
   "status" : "Отправлено",
   "dateMail" : "25-05-2023",
-  "size" : 1472.2
+  "size" : 1143.5
 }, {
   "messageID" : 5,
   "title" : "I'm back. Hey!",
@@ -41,5 +41,5 @@
   "serverRecipient" : "yandex.ru",
   "status" : "Отправлено",
   "dateMail" : "26-09-2023",
-  "size" : 765.1
+  "size" : 2302.7
 } ]
